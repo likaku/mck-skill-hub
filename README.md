@@ -3,9 +3,9 @@
 <br>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="media/logo-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="media/logo.svg">
-  <img src="media/logo.svg" alt="Mck Skill Hub" width="540">
+  <source media="(prefers-color-scheme: dark)" srcset="media/logo-dark.svg?v=2">
+  <source media="(prefers-color-scheme: light)" srcset="media/logo.svg?v=2">
+  <img src="media/logo.svg?v=2" alt="Mck Skill Hub" width="540">
 </picture>
 
 <br>
@@ -64,7 +64,11 @@ We organize skills around the **Meaning-Achievement Matrix** — a 2×2 that map
 <br>
 
 <div align="center">
-<img src="media/matrix.svg" alt="Meaning-Achievement Matrix" width="640">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="media/matrix-dark.svg?v=2">
+  <source media="(prefers-color-scheme: light)" srcset="media/matrix.svg?v=2">
+  <img src="media/matrix.svg?v=2" alt="Meaning-Achievement Matrix" width="640">
+</picture>
 </div>
 
 <br>
