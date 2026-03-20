@@ -29,6 +29,7 @@
 <sub>
 <a href="PHILOSOPHY.md">📖 设计哲学</a>&nbsp;&nbsp;•&nbsp;&nbsp;
 <a href="CONTRIBUTING.md">🤝 参与贡献</a>&nbsp;&nbsp;•&nbsp;&nbsp;
+<a href="COMMUNITY_VOTING.md">🗳️ 投票规则</a>&nbsp;&nbsp;•&nbsp;&nbsp;
 <a href="template/skill-template/">📐 技能模板</a>
 </sub>
 

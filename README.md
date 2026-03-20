@@ -29,6 +29,7 @@ If your job involves slides, strategy, or structured thinking — these skills a
 <sub>
 <a href="PHILOSOPHY.md">📖 Philosophy</a>&nbsp;&nbsp;•&nbsp;&nbsp;
 <a href="CONTRIBUTING.md">🤝 Contributing</a>&nbsp;&nbsp;•&nbsp;&nbsp;
+<a href="COMMUNITY_VOTING.md">🗳️ Voting Rules</a>&nbsp;&nbsp;•&nbsp;&nbsp;
 <a href="template/skill-template/">📐 Skill Template</a>
 </sub>
 
