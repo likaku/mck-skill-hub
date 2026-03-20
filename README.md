@@ -85,7 +85,7 @@ You're crushing deliverables. The decks are pixel-perfect, the storylines are ti
 | Skill | Description | Status |
 |-------|-------------|--------|
 | [**Mck PPT Design**](https://github.com/likaku/Mck-ppt-design-skill) | Professional-grade PowerPoint presentations with a full design system: 16+ layouts, typography hierarchy, color tokens, and python-pptx automation. | `✅ Production` |
-| [**Professional Speech**](https://github.com/likaku/Mck-speech-design-skill) | Structure compelling presentations and talking points using Pyramid Principle, SCQA, and Minto frameworks. | `✅ Production` |
+| [**Mck Speech Design**](https://github.com/likaku/Mck-speech-design-skill) | AI-powered McKinsey-style speech writing — auto-generate speaker notes & inject into PPTX. | `✅ Production` |
 | [**Mck HTML Design**](https://github.com/likaku/mck-html-design-skill) | McKinsey-style HTML presentations with Python — 68 layouts, zero dependencies. My gut feeling is that PPT will eventually be obsoleted. | `✅ Production` |
 
 ### 🚀 Purposeful Impact

@@ -85,7 +85,7 @@
 | 技能 | 描述 | 状态 |
 |------|------|------|
 | [**Mck PPT Design**](https://github.com/likaku/Mck-ppt-design-skill) | 专业级 PowerPoint 演示设计，完整设计系统：16+ 布局模板、字体层级、色彩 Token、python-pptx 自动化。 | `✅ 生产就绪` |
-| [**Professional Speech**](https://github.com/likaku/Mck-speech-design-skill) | 使用金字塔原理、SCQA、Minto 框架来结构化演讲内容和 talking points。 | `✅ 生产就绪` |
+| [**Mck Speech Design**](https://github.com/likaku/Mck-speech-design-skill) | AI 驱动的麦肯锡风格演讲写作技能——自动生成演讲者备注并注入 PPTX 文件。 | `✅ 生产就绪` |
 | [**Mck HTML Design**](https://github.com/likaku/mck-html-design-skill) | 用 Python 一键生成麦肯锡风格 HTML 演示文稿——68 种布局，零依赖。我的 gut feeling 是，PPT will eventually 被淘汰。 | `✅ 生产就绪` |
 
 ### 🚀 有意义的影响（Purposeful Impact）
