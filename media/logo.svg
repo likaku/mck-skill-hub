@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <defs>
+    <style>
+      .title { font-family: Georgia, 'Times New Roman', serif; font-size: 72px; font-weight: bold; fill: #051C2C; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 20px; fill: #666666; }
+      .matrix-line { stroke: #CCCCCC; stroke-width: 1.5; }
+      .quadrant-icon { font-size: 24px; }
+      .quadrant-label { font-family: Arial, Helvetica, sans-serif; font-size: 11px; fill: #999999; }
+    </style>
+  </defs>
+  
+  <!-- Matrix diagram (left side) -->
+  <g transform="translate(60, 50)">
+    <!-- Axes -->
+    <line x1="0" y1="100" x2="200" y2="100" class="matrix-line"/>
+    <line x1="100" y1="0" x2="100" y2="200" class="matrix-line"/>
+    
+    <!-- Quadrant icons -->
+    <text x="50" y="55" text-anchor="middle" class="quadrant-icon">🐹</text>
+    <text x="50" y="75" text-anchor="middle" class="quadrant-label">Hollow Victory</text>
+    
+    <text x="150" y="55" text-anchor="middle" class="quadrant-icon">🚀</text>
+    <text x="150" y="75" text-anchor="middle" class="quadrant-label">Purposeful Impact</text>
+    
+    <text x="50" y="145" text-anchor="middle" class="quadrant-icon">⚓</text>
+    <text x="50" y="165" text-anchor="middle" class="quadrant-label">The Drift</text>
+    
+    <text x="150" y="145" text-anchor="middle" class="quadrant-icon">🕯️</text>
+    <text x="150" y="165" text-anchor="middle" class="quadrant-label">Quiet Contentment</text>
+    
+    <!-- Axis labels -->
+    <text x="100" y="-8" text-anchor="middle" class="quadrant-label">Achievement ↑</text>
+    <text x="215" y="104" text-anchor="start" class="quadrant-label">Meaning →</text>
+  </g>
+  
+  <!-- Title (right side) -->
+  <text x="380" y="130" class="title">Mck-skills</text>
+  <text x="380" y="165" class="subtitle">Skills for a better Way of Living &amp; Working</text>
+  
+  <!-- Tagline -->
+  <text x="380" y="200" font-family="Arial" font-size="14" fill="#999999">A curated collection of AI agent skills organized by</text>
+  <text x="380" y="220" font-family="Arial" font-size="14" fill="#999999">what kind of life you want to live.</text>
+</svg>

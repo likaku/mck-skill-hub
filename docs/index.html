@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mck-skills — Skills for a better Way of Living & Working</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #051C2C;
+            --cream: #F8F5F0;
+            --warm-white: #FEFCF9;
+            --gold: #C4A35A;
+            --gold-light: #E8D5A3;
+            --charcoal: #2A2A2A;
+            --slate: #5A6673;
+            --mist: #E8E4DF;
+            --hollow-victory: #D4A84B;
+            --purposeful-impact: #2E7D6F;
+            --the-drift: #4A6FA5;
+            --quiet-contentment: #A0522D;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--cream);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ============ HERO ============ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: var(--navy);
+            color: var(--cream);
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse 60% 50% at 20% 30%, rgba(196, 163, 90, 0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 60% at 80% 70%, rgba(78, 126, 168, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-grain {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.3s forwards;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            line-height: 1.05;
+            text-align: center;
+            max-width: 900px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.5s forwards;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-body);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 300;
+            text-align: center;
+            max-width: 600px;
+            margin-top: 1.5rem;
+            color: rgba(248, 245, 240, 0.65);
+            line-height: 1.7;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.7s forwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.9s forwards;
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border: 1px solid;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+            border-color: var(--gold);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--gold);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--cream);
+            border-color: rgba(248, 245, 240, 0.3);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--cream);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 1.2s forwards;
+        }
+
+        .scroll-indicator span {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(248, 245, 240, 0.4);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            animation: scrollPulse 2s ease infinite;
+        }
+
+        /* ============ MATRIX SECTION ============ */
+        .matrix-section {
+            padding: 8rem 2rem;
+            background: var(--warm-white);
+            position: relative;
+        }
+
+        .matrix-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(to bottom, var(--navy), transparent);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--navy);
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
+            color: var(--slate);
+            line-height: 1.8;
+            margin-top: 1.2rem;
+            font-weight: 300;
+        }
+
+        /* Matrix Grid */
+        .matrix-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .matrix-axes {
+            position: relative;
+            padding: 3rem 0 0 3rem;
+        }
+
+        .axis-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--slate);
+            position: absolute;
+        }
+
+        .axis-y-label {
+            left: -0.5rem;
+            top: 50%;
+            transform: rotate(-90deg) translateX(50%);
+            transform-origin: left center;
+        }
+
+        .axis-x-label {
+            bottom: -2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .axis-high {
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .axis-low {
+            opacity: 0.5;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2px;
+            background: var(--mist);
+            border: 1px solid var(--mist);
+        }
+
+        .quadrant-card {
+            background: var(--warm-white);
+            padding: 2.5rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quadrant-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px;
+            height: 0;
+            transition: height 0.4s ease;
+        }
+
+        .quadrant-card:hover::before {
+            height: 100%;
+        }
+
+        .quadrant-card:hover {
+            background: white;
+            transform: scale(1.01);
+            box-shadow: 0 20px 60px rgba(5, 28, 44, 0.08);
+            z-index: 2;
+        }
+
+        .q-hollow-victory::before { background: var(--hollow-victory); }
+        .q-purposeful-impact::before { background: var(--purposeful-impact); }
+        .q-the-drift::before { background: var(--the-drift); }
+        .q-quiet-contentment::before { background: var(--quiet-contentment); }
+
+        .quadrant-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .quadrant-name {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .quadrant-tagline {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--slate);
+            margin-bottom: 1.2rem;
+        }
+
+        .quadrant-desc {
+            font-size: 0.9rem;
+            color: var(--slate);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .quadrant-stats {
+            display: flex;
+            gap: 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            color: var(--slate);
+        }
+
+        .stat-num {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--navy);
+            display: block;
+        }
+
+        /* ============ SKILLS GALLERY ============ */
+        .gallery-section {
+            padding: 8rem 2rem;
+            background: var(--cream);
+        }
+
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--mist);
+            background: transparent;
+            color: var(--slate);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background: var(--navy);
+            color: var(--cream);
+            border-color: var(--navy);
+        }
+
+        .skills-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: white;
+            border: 1px solid var(--mist);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .skill-card:hover {
+            border-color: var(--navy);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(5, 28, 44, 0.08);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .skill-badge {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.6rem;
+            border: 1px solid;
+        }
+
+        .badge-production {
+            color: var(--purposeful-impact);
+            border-color: var(--purposeful-impact);
+        }
+
+        .badge-planned {
+            color: var(--slate);
+            border-color: var(--mist);
+        }
+
+        .badge-beta {
+            color: var(--hollow-victory);
+            border-color: var(--hollow-victory);
+        }
+
+        .skill-desc {
+            font-size: 0.88rem;
+            color: var(--slate);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-quadrant-tag {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.5rem;
+            background: var(--cream);
+        }
+
+        .skill-tags {
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .skill-tag {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--slate);
+            background: var(--cream);
+            padding: 0.2rem 0.5rem;
+        }
+
+        /* ============ PHILOSOPHY SECTION ============ */
+        .philosophy-section {
+            padding: 8rem 2rem;
+            background: var(--navy);
+            color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .philosophy-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse 50% 50% at 80% 20%, rgba(196, 163, 90, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .philosophy-quote {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2.4rem);
+            font-weight: 400;
+            line-height: 1.5;
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: rgba(248, 245, 240, 0.9);
+        }
+
+        .philosophy-quote em {
+            color: var(--gold);
+            font-style: normal;
+        }
+
+        .philosophy-attribution {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            color: rgba(248, 245, 240, 0.4);
+        }
+
+        .three-moves {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 5rem auto 0;
+            text-align: left;
+        }
+
+        .move-card {
+            border-top: 1px solid rgba(248, 245, 240, 0.15);
+            padding-top: 2rem;
+        }
+
+        .move-arrow {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+        }
+
+        .move-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .move-desc {
+            font-size: 0.88rem;
+            color: rgba(248, 245, 240, 0.6);
+            line-height: 1.7;
+        }
+
+        /* ============ QUICKSTART SECTION ============ */
+        .quickstart-section {
+            padding: 8rem 2rem;
+            background: var(--warm-white);
+        }
+
+        .quickstart-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .code-block {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            line-height: 1.8;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block::before {
+            content: 'TERMINAL';
+            position: absolute;
+            top: 0.8rem;
+            right: 1rem;
+            font-size: 0.55rem;
+            letter-spacing: 0.2em;
+            color: rgba(248, 245, 240, 0.25);
+        }
+
+        .code-comment {
+            color: rgba(248, 245, 240, 0.35);
+        }
+
+        .code-cmd {
+            color: var(--gold);
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            padding: 4rem 2rem;
+            background: var(--navy);
+            text-align: center;
+            border-top: 1px solid rgba(248, 245, 240, 0.08);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: rgba(248, 245, 240, 0.5);
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer p {
+            font-size: 0.8rem;
+            color: rgba(248, 245, 240, 0.25);
+            font-style: italic;
+        }
+
+        /* ============ ANIMATIONS ============ */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .matrix-grid {
+                grid-template-columns: 1fr;
+            }
+            .three-moves {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            .matrix-axes {
+                padding: 1rem 0 0 0;
+            }
+            .axis-y-label {
+                display: none;
+            }
+            .quadrant-card {
+                padding: 1.8rem;
+            }
+            .gallery-tabs {
+                gap: 0.3rem;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+        <div class="hero-grain"></div>
+        <div class="hero-badge">A curated skill gallery for consultants & builders</div>
+        <h1>Mck-<em>skills</em></h1>
+        <p class="hero-subtitle">
+            Skills for a better Way of Living & Working.<br/>
+            Built around the Meaning-Achievement Matrix.
+        </p>
+        <div class="hero-cta">
+            <a href="#gallery" class="btn btn-primary">Browse Skills</a>
+            <a href="https://github.com" class="btn btn-ghost" target="_blank">View on GitHub</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ============ MATRIX ============ -->
+    <section class="matrix-section" id="matrix">
+        <div class="section-header fade-in">
+            <div class="section-label">The Framework</div>
+            <h2>The Meaning-Achievement Matrix</h2>
+            <p>Every skill maps to one of four quadrants. The goal isn't to live in one — it's to move intentionally between them.</p>
+        </div>
+
+        <div class="matrix-container fade-in">
+            <div class="matrix-axes">
+                <div class="axis-label axis-y-label">
+                    <span class="axis-low">Low</span> ← Achievements → <span class="axis-high">High</span>
+                </div>
+                <div class="axis-label axis-x-label">
+                    <span class="axis-low">Low</span> ← Meaning → <span class="axis-high">High</span>
+                </div>
+
+                <div class="matrix-grid">
+                    <div class="quadrant-card q-hollow-victory" onclick="filterSkills('hollow-victory')">
+                        <div class="quadrant-icon">🐹</div>
+                        <div class="quadrant-name">The Hollow Victory</div>
+                        <div class="quadrant-tagline">"Run faster, feel less."</div>
+                        <div class="quadrant-desc">
+                            High achievement, low meaning. You're crushing it — but Sunday nights fill you with dread.
+                            These skills automate the mechanical, freeing you from the hamster wheel.
+                        </div>
+                        <div class="quadrant-stats">
+                            <div><span class="stat-num">4</span> skills</div>
+                            <div><span class="stat-num">✅</span> production</div>
+                        </div>
+                    </div>
+
+                    <div class="quadrant-card q-purposeful-impact" onclick="filterSkills('purposeful-impact')">
+                        <div class="quadrant-icon">🚀</div>
+                        <div class="quadrant-name">Purposeful Impact</div>
+                        <div class="quadrant-tagline">"Build what matters."</div>
+                        <div class="quadrant-desc">
+                            The north star. Channel your consulting superpowers into work that matters —
+                            side projects, ventures, communities that align purpose with achievement.
+                        </div>
+                        <div class="quadrant-stats">
+                            <div><span class="stat-num">5</span> planned</div>
+                            <div><span class="stat-num">🔜</span> coming soon</div>
+                        </div>
+                    </div>
+
+                    <div class="quadrant-card q-the-drift" onclick="filterSkills('the-drift')">
+                        <div class="quadrant-icon">⚓</div>
+                        <div class="quadrant-name">The Drift</div>
+                        <div class="quadrant-tagline">"Lost at sea."</div>
+                        <div class="quadrant-desc">
+                            Low everything. Doom-scrolling between meetings, procrastinating because nothing
+                            feels worth doing. These skills provide structure when you've lost your compass.
+                        </div>
+                        <div class="quadrant-stats">
+                            <div><span class="stat-num">4</span> planned</div>
+                            <div><span class="stat-num">⚓</span> rescue kit</div>
+                        </div>
+                    </div>
+
+                    <div class="quadrant-card q-quiet-contentment" onclick="filterSkills('quiet-contentment')">
+                        <div class="quadrant-icon">🕯️</div>
+                        <div class="quadrant-name">Quiet Contentment</div>
+                        <div class="quadrant-tagline">"Simple riches."</div>
+                        <div class="quadrant-desc">
+                            Not everything needs to be a KPI. These skills support the life around the work —
+                            reading, reflection, relationships, and rest.
+                        </div>
+                        <div class="quadrant-stats">
+                            <div><span class="stat-num">4</span> planned</div>
+                            <div><span class="stat-num">🕯️</span> slow down</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-header fade-in">
+            <div class="section-label">The Gallery</div>
+            <h2>All Skills</h2>
+            <p>Filter by quadrant. Explore by purpose. Install in seconds.</p>
+        </div>
+
+        <div class="gallery-tabs fade-in">
+            <button class="tab-btn active" onclick="filterSkills('all')">All Skills</button>
+            <button class="tab-btn" onclick="filterSkills('hollow-victory')">🐹 Hollow Victory</button>
+            <button class="tab-btn" onclick="filterSkills('purposeful-impact')">🚀 Purposeful Impact</button>
+            <button class="tab-btn" onclick="filterSkills('the-drift')">⚓ The Drift</button>
+            <button class="tab-btn" onclick="filterSkills('quiet-contentment')">🕯️ Quiet Contentment</button>
+        </div>
+
+        <div class="skills-grid fade-in" id="skillsGrid">
+            <!-- Hollow Victory Skills -->
+            <div class="skill-card" data-quadrant="hollow-victory">
+                <div class="skill-header">
+                    <div class="skill-name">mck-ppt-design</div>
+                    <div class="skill-badge badge-production">Production</div>
+                </div>
+                <div class="skill-desc">McKinsey-grade PowerPoint presentations from structured content. Full design system with 16+ layout patterns, typography hierarchy, and color tokens.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">🐹 hollow victory</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ppt</span>
+                        <span class="skill-tag">design</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card" data-quadrant="hollow-victory">
+                <div class="skill-header">
+                    <div class="skill-name">mck-chart-design</div>
+                    <div class="skill-badge badge-production">Production</div>
+                </div>
+                <div class="skill-desc">FT/Economist editorial chart prompts for Midjourney. Cold-palette, annotation-driven line charts with direct labeling and focal emphasis.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">🐹 hollow victory</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">chart</span>
+                        <span class="skill-tag">midjourney</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card" data-quadrant="hollow-victory">
+                <div class="skill-header">
+                    <div class="skill-name">professional-speech</div>
+                    <div class="skill-badge badge-production">Production</div>
+                </div>
+                <div class="skill-desc">Structure compelling presentations and team communications using Pyramid Principle, SCQA, and Minto frameworks.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">🐹 hollow victory</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">speech</span>
+                        <span class="skill-tag">storytelling</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card" data-quadrant="hollow-victory">
+                <div class="skill-header">
+                    <div class="skill-name">workbuddy-ppt-engine</div>
+                    <div class="skill-badge badge-production">Production</div>
+                </div>
+                <div class="skill-desc">Python-pptx automation backbone with McKinsey design system. Production-tested code patterns and file corruption defense.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">🐹 hollow victory</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">python</span>
+                        <span class="skill-tag">engine</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card" data-quadrant="hollow-victory">
+                <div class="skill-header">
+                    <div class="skill-name">data-model-builder</div>
+                    <div class="skill-badge badge-planned">Planned</div>
+                </div>
+                <div class="skill-desc">Financial model scaffolding and sensitivity analysis. Build consulting-grade models from assumptions to outputs in minutes.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">🐹 hollow victory</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">finance</span>
+                        <span class="skill-tag">excel</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card" data-quadrant="hollow-victory">
+                <div class="skill-header">
+                    <div class="skill-name">client-email-craft</div>
+                    <div class="skill-badge badge-planned">Planned</div>
+                </div>
+                <div class="skill-desc">Professional client communication templates. Tone-matched, context-aware emails that sound like you — but faster.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">🐹 hollow victory</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">email</span>
+                        <span class="skill-tag">client</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Purposeful Impact Skills -->
+            <div class="skill-card" data-quadrant="purposeful-impact">
+                <div class="skill-header">
+                    <div class="skill-name">venture-canvas</div>
+                    <div class="skill-badge badge-planned">Planned</div>
+                </div>
+                <div class="skill-desc">Lean Canvas + market sizing for side ventures. Apply your strategy toolkit to your own ideas, not just clients'.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">🚀 purposeful impact</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">strategy</span>
+                        <span class="skill-tag">startup</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card" data-quadrant="purposeful-impact">
+                <div class="skill-header">
+                    <div class="skill-name">community-builder</div>
+                    <div class="skill-badge badge-planned">Planned</div>
+                </div>
+                <div class="skill-desc">Design and grow communities with flywheel thinking. From zero to thriving ecosystem using consulting growth frameworks.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">🚀 purposeful impact</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">community</span>
+                        <span class="skill-tag">growth</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card" data-quadrant="purposeful-impact">
+                <div class="skill-header">
+                    <div class="skill-name">strategy-storyteller</div>
+                    <div class="skill-badge badge-planned">Planned</div>
+                </div>
+                <div class="skill-desc">Turn complex strategy into compelling narratives. From issue trees to TED-talk-worthy stories that move people.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">🚀 purposeful impact</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">narrative</span>
+                        <span class="skill-tag">strategy</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card" data-quadrant="purposeful-impact">
+                <div class="skill-header">
+                    <div class="skill-name">open-source-launch</div>
+                    <div class="skill-badge badge-planned">Planned</div>
+                </div>
+                <div class="skill-desc">Launch and grow an open-source project. README design, community setup, CI/CD, and growth strategy — the full playbook.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">🚀 purposeful impact</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">open-source</span>
+                        <span class="skill-tag">github</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Drift Skills -->
+            <div class="skill-card" data-quadrant="the-drift">
+                <div class="skill-header">
+                    <div class="skill-name">weekly-compass</div>
+                    <div class="skill-badge badge-planned">Planned</div>
+                </div>
+                <div class="skill-desc">Weekly planning ritual with energy and priority mapping. Not another to-do list — a compass for when you feel directionless.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">⚓ the drift</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">planning</span>
+                        <span class="skill-tag">ritual</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card" data-quadrant="the-drift">
+                <div class="skill-header">
+                    <div class="skill-name">decision-journal</div>
+                    <div class="skill-badge badge-planned">Planned</div>
+                </div>
+                <div class="skill-desc">Structured decision logging to build self-awareness. Track the quality of your decisions, not just outcomes.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">⚓ the drift</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">reflection</span>
+                        <span class="skill-tag">decisions</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card" data-quadrant="the-drift">
+                <div class="skill-header">
+                    <div class="skill-name">focus-session</div>
+                    <div class="skill-badge badge-planned">Planned</div>
+                </div>
+                <div class="skill-desc">Deep work session design with Pomodoro + intelligent context loading. Beat the procrastination loop with structured intensity.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">⚓ the drift</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">focus</span>
+                        <span class="skill-tag">deep-work</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiet Contentment Skills -->
+            <div class="skill-card" data-quadrant="quiet-contentment">
+                <div class="skill-header">
+                    <div class="skill-name">reading-digest</div>
+                    <div class="skill-badge badge-planned">Planned</div>
+                </div>
+                <div class="skill-desc">Summarize and annotate books, articles, and podcasts. Build your personal knowledge library without the grind.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">🕯️ quiet contentment</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">reading</span>
+                        <span class="skill-tag">knowledge</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card" data-quadrant="quiet-contentment">
+                <div class="skill-header">
+                    <div class="skill-name">reflection-prompt</div>
+                    <div class="skill-badge badge-planned">Planned</div>
+                </div>
+                <div class="skill-desc">Daily and weekly reflection using consulting frameworks — applied to life, not clients. Structured introspection for structured minds.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">🕯️ quiet contentment</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">reflection</span>
+                        <span class="skill-tag">journaling</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card" data-quadrant="quiet-contentment">
+                <div class="skill-header">
+                    <div class="skill-name">life-dashboard</div>
+                    <div class="skill-badge badge-planned">Planned</div>
+                </div>
+                <div class="skill-desc">Personal KPI tracker beyond work metrics. Health, relationships, learning, creativity — the metrics that actually matter.</div>
+                <div class="skill-meta">
+                    <div class="skill-quadrant-tag">🕯️ quiet contentment</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">dashboard</span>
+                        <span class="skill-tag">wellness</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PHILOSOPHY ============ -->
+    <section class="philosophy-section" id="philosophy">
+        <div class="philosophy-content fade-in">
+            <div class="section-label" style="color: var(--gold);">The Philosophy</div>
+            <div class="philosophy-quote">
+                "Most skill galleries optimize for <em>doing more, faster</em>. We optimize for <em>doing what matters</em> — and automating the rest."
+            </div>
+            <div class="philosophy-attribution">— The Mck-skills Manifesto</div>
+        </div>
+
+        <div class="three-moves fade-in">
+            <div class="move-card">
+                <div class="move-arrow">→</div>
+                <div class="move-title">Move 1: Add Meaning</div>
+                <div class="move-desc">
+                    Hollow Victory → Purposeful Impact. Automate the mechanical (decks, formatting, boilerplate) and invest the freed time into projects you genuinely care about.
+                </div>
+            </div>
+            <div class="move-card">
+                <div class="move-arrow">↘</div>
+                <div class="move-title">Move 2: Step Off</div>
+                <div class="move-desc">
+                    Hollow Victory → Quiet Contentment. Sometimes you don't need another promotion. You need a walk without your phone, a book, a conversation about something other than work.
+                </div>
+            </div>
+            <div class="move-card">
+                <div class="move-arrow">↗</div>
+                <div class="move-title">Move 3: Find Structure</div>
+                <div class="move-desc">
+                    The Drift → Anywhere. When you're lost, use the same frameworks you'd apply to a client problem — but point them inward. Structure is salvation.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ QUICKSTART ============ -->
+    <section class="quickstart-section" id="quickstart">
+        <div class="section-header fade-in">
+            <div class="section-label">Get Started</div>
+            <h2>Install in Seconds</h2>
+            <p>Every skill follows the Claude Skills standard. Pick one, install it, and get back to what matters.</p>
+        </div>
+
+        <div class="quickstart-content fade-in">
+            <div class="code-block">
+                <span class="code-comment"># Install a specific skill</span><br/>
+                <span class="code-cmd">cp -r skills/hollow-victory/mck-ppt-design/ ~/.claude/skills/</span><br/><br/>
+                <span class="code-comment"># Or browse the full gallery</span><br/>
+                <span class="code-cmd">git clone https://github.com/[username]/Mck-skills.git</span><br/>
+                <span class="code-cmd">cd Mck-skills && ls skills/</span><br/><br/>
+                <span class="code-comment"># Each skill has a SKILL.md — the brain of the operation</span><br/>
+                <span class="code-cmd">cat skills/hollow-victory/mck-ppt-design/SKILL.md</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#matrix">Framework</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#philosophy">Philosophy</a>
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="CONTRIBUTING.md">Contribute</a>
+        </div>
+        <p>Made with ❤️ by consultants who believe there's more to life than billable hours.</p>
+    </footer>
+
+    <script>
+        // Scroll-triggered fade-in animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Skill filtering
+        function filterSkills(quadrant) {
+            const cards = document.querySelectorAll('.skill-card');
+            const tabs = document.querySelectorAll('.tab-btn');
+
+            // Update active tab
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (
+                    (quadrant === 'all' && tab.textContent.includes('All')) ||
+                    tab.textContent.toLowerCase().includes(quadrant.replace('-', ' ').split(' ')[0])
+                ) {
+                    tab.classList.add('active');
+                }
+            });
+
+            // Filter cards
+            cards.forEach(card => {
+                if (quadrant === 'all' || card.dataset.quadrant === quadrant) {
+                    card.style.display = '';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(10px)';
+                    requestAnimationFrame(() => {
+                        card.style.transition = 'all 0.4s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    });
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Smooth scroll for hero CTA
+        document.querySelector('.btn-primary').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
