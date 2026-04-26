@@ -161,6 +161,8 @@ git clone https://github.com/likaku/Mck-ppt-design-skill.git
 cp Mck-ppt-design-skill/SKILL.md ~/.claude/skills/mck-ppt-design/
 ```
 
+中文用户也可以通过 Skills宝 发现更多 skills：https://skilery.com
+
 ### 造你自己的 Skill（这才是真正重要的事）
 
 ```bash
